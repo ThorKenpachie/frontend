@@ -2,10 +2,7 @@ import React from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
-
-
 
 import Home from './pages/Home';
 import About from './pages/About';
@@ -18,43 +15,39 @@ function App() {
     <Router>
       <div style={{ backgroundColor: '#2E8B57', minHeight: '150vh' }}>
         
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="dark" variant="dark" expand="lg">
           <Container>
-            <Navbar.Brand href="/home">My Personal Website</Navbar.Brand>
+            <Navbar.Brand href="/">My Personal Website</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">
-                <Link to="/" style={{ textDecoration: 'none', marginRight: '10px' }}>
-                  <Button variant="outline-primary">Home</Button>
-                </Link>
-                <Link to="/about" style={{ textDecoration: 'none', marginRight: '10px' }}>
-                  <Button variant="outline-success">About</Button>
-                </Link>
-                <Link to="/education" style={{ textDecoration: 'none', marginRight: '10px' }}>
-                  <Button variant="outline-warning">Education</Button>
-                </Link>
-                <Link to="/hobbies" style={{ textDecoration: 'none', marginRight: '10px' }}>
-                  <Button variant="outline-danger">Hobbies</Button>
-                </Link>
-                <Link to="/contact" style={{ textDecoration: 'none' }}>
+                <Nav.Link as={Link} to="/" style={{ marginRight: '10px' }}>
+                  Home
+                </Nav.Link>
+                <Nav.Link as={Link} to="/about" style={{ marginRight: '10px' }}>
+                  About
+                </Nav.Link>
+                <Nav.Link as={Link} to="/education" style={{ marginRight: '10px' }}>
+                  Education
+                </Nav.Link>
+                <Nav.Link as={Link} to="/hobbies" style={{ marginRight: '10px' }}>
+                  Hobbies
+                </Nav.Link>
                 <Dropdown>
-                <Dropdown.Toggle variant="success" id="dropdown-basic">
-                 Contact
-                </Dropdown.Toggle>
-                <Dropdown.Menu>
-                <Dropdown.Item href="mailto:emazo@gbox.ncf.edu.ph">Email Me</Dropdown.Item>
-                <Dropdown.Item href="09923309349">Call Me</Dropdown.Item>
-                <Dropdown.Item href="/about">About</Dropdown.Item>
-                
-              </Dropdown.Menu>
+                  <Dropdown.Toggle variant="success" id="dropdown-basic">
+                    Contact
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu>
+                    <Dropdown.Item href="mailto:emazo@gbox.ncf.edu.ph">Email Me</Dropdown.Item>
+                    <Dropdown.Item href="tel:09923309349">Call Me</Dropdown.Item>
+                    <Dropdown.Item as={Link} to="/about">About</Dropdown.Item>
+                  </Dropdown.Menu>
                 </Dropdown>
-                </Link>
               </Nav>
             </Navbar.Collapse>
           </Container>
         </Navbar>
 
-        
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
