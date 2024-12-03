@@ -11,9 +11,15 @@ import Contact from './pages/Contact';
 
 function App() {
   return (
-    <Router>
+    <Router
+      future={{
+        v7_startTransition: true, // Opt-in for v7 startTransition behavior
+        v7_relativeSplatPath: true, // Opt-in for v7 splat path behavior
+      }}
+    >
       <div style={{ backgroundColor: '#2E8B57', minHeight: '150vh' }}>
         
+        {/* Navigation Bar */}
         <Navbar bg="dark" variant="dark" expand="lg">
           <Container>
             <Navbar.Brand href="/">My Personal Website</Navbar.Brand>
@@ -40,6 +46,7 @@ function App() {
           </Container>
         </Navbar>
 
+        {/* Routes */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
