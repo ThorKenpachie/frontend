@@ -2,7 +2,6 @@ import React from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Dropdown from 'react-bootstrap/Dropdown';
 
 import Home from './pages/Home';
 import About from './pages/About';
@@ -33,16 +32,9 @@ function App() {
                 <Nav.Link as={Link} to="/hobbies" style={{ marginRight: '10px' }}>
                   Hobbies
                 </Nav.Link>
-                <Dropdown>
-                  <Dropdown.Toggle variant="success" id="dropdown-basic">
-                    Contact
-                  </Dropdown.Toggle>
-                  <Dropdown.Menu>
-                    <Dropdown.Item href="mailto:emazo@gbox.ncf.edu.ph">Email Me</Dropdown.Item>
-                    <Dropdown.Item href="tel:09923309349">Call Me</Dropdown.Item>
-                    <Dropdown.Item as={Link} to="/about">About</Dropdown.Item>
-                  </Dropdown.Menu>
-                </Dropdown>
+                <Nav.Link as={Link} to="/contact" style={{ marginRight: '10px' }}>
+                  Contact
+                </Nav.Link>
               </Nav>
             </Navbar.Collapse>
           </Container>
